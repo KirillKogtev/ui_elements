@@ -7,7 +7,7 @@ const styles = require('./Button.css');
 class Button extends React.Component {
 
     static propTypes = {
-        text: Types.string,
+        text: Types.node,
         name: Types.string,
         icon: Types.node,
         focused: Types.bool,
@@ -82,6 +82,7 @@ class Button extends React.Component {
                     {this.props.rightElements}
                 </span>
         ];
+
         return React.createElement(element, elementProps, elementContent);
     }
 
