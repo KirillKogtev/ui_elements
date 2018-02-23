@@ -151,7 +151,7 @@ class Button extends React.Component {
         }
 
         if (this.props.onMouseOut) {
-            this.props.onClick(e);
+            this.props.onMouseOut(e);
         }
     };
 

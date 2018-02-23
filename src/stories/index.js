@@ -17,6 +17,14 @@ const Buttons = (
             Дефолтное состояние обычной кнопки кнопки:<br/>
             <Button
                 name={'default'}
+                onClick={action('Click')}
+                onBlur={action('Blur')}
+                onFocus={action('Focus')}
+                onMouseDown={action('MouseDown')}
+                onMouseLeave={action('MouseLeave')}
+                onMouseOut={action('MouseOut')}
+                onKeyUp={action('KeyUp')}
+                onKeyDown={action('LeyDown')}
             >default</Button>
         </div>
         <div>
@@ -24,7 +32,7 @@ const Buttons = (
             <Button
                 name={'disabled'}
                 text={'disabled'}
-                disabled={true}
+                disabled={false}
             />
         </div>
         <hr/>
@@ -74,4 +82,4 @@ const Buttons = (
 );
 
 storiesOf('Button', module)
-    .add('with text', () => Buttons);
+    .add('Buttons', () => Buttons);
