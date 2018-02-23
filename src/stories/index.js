@@ -36,6 +36,40 @@ const Buttons = (
                 Большая кнопка
             </Button>
         </div>
+        <div>
+            Обычная кнопка: <br/>
+            <Button
+            >
+                Обычная кнопка
+            </Button>
+        </div>
+        <div>
+            Маленькая кнопка: <br/>
+            <Button
+                size={'small'}
+            >
+                Маленькая кнопка
+            </Button>
+        </div>
+        <hr/>
+        <div>
+            Обычная кнопка <br/>
+            <Button
+                view_type={'default'}
+            />
+        </div>
+        <div>
+            Спец.кнопка <br/>
+            <Button
+                view_type={'special'}
+            />
+        </div>
+        <div>
+            Дополнительная кнопка <br/>
+            <Button
+                view_type={'additional'}
+            />
+        </div>
     </div>
 );
 

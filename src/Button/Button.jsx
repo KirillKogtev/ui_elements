@@ -14,6 +14,7 @@ class Button extends React.Component {
         disabled: Types.bool,
         size: Types.oneOf(['large', 'default', 'small']),
         type: Types.oneOf(['button', 'submit']),
+        view_type: Types.oneOf(['default', 'additional', 'special']),
         theme: Types.oneOf(['dark_theme', 'light_theme']),
         children: Types.oneOfType([Types.arrayOf(Types.node), Types.node]),
         tabIndex: Types.number,
@@ -36,6 +37,7 @@ class Button extends React.Component {
         text: 'button',
         type: 'button',
         size: 'default',
+        view_type: 'default',
     };
 
     state = {
@@ -84,6 +86,7 @@ class Button extends React.Component {
                 {...elementProps}
                 className={cn({
                     size: this.props.size,
+                    type: this.props.view_type,
                     disabled: this.props.disabled,
                 })}>
                 {elementContent}
