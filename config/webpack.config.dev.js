@@ -144,7 +144,7 @@ module.exports = {
                         include: paths.appSrc,
                         loader: require.resolve('babel-loader'),
                         options: {
-
+                            plugins: ['transform-decorators-legacy', 'transform-export-extensions'],
                             // This is a feature of `babel-loader` for webpack (not Babel itself).
                             // It enables caching results in ./node_modules/.cache/babel-loader/
                             // directory for faster rebuilds.
@@ -159,13 +159,13 @@ module.exports = {
                     {
                         test: /\.css$/,
                         use: [
-                            require.resolve('style-loader'),
                             {
-                                loader: require.resolve('css-loader'),
+                                loader: 'style-loader',
+                            },
+                            {
+                                loader: 'css-loader',
                                 options: {
-                                    importLoaders: 1,
-                                    modules: true,
-                                    localIdentName: "[name]__[local]___[hash:base64:5]",
+                                    sourceMap: true,
                                 },
                             },
                             {

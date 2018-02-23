@@ -1,21 +1,21 @@
 import React from 'react';
 import Types from 'prop-types';
 import keycode from 'keycode';
+import cn from 'cn-decorator';
+import './Button.css';
 
-const styles = require('./Button.css');
 
+@cn('button')
 class Button extends React.Component {
 
     static propTypes = {
         text: Types.node,
         name: Types.string,
-        icon: Types.node,
-        focused: Types.bool,
         disabled: Types.bool,
-        pressed: Types.bool,
         size: Types.oneOf(['large', 'default', 'small']),
         type: Types.oneOf(['button', 'submit']),
         theme: Types.oneOf(['dark_theme', 'light_theme']),
+        children: Types.oneOfType([Types.arrayOf(Types.node), Types.node]),
         tabIndex: Types.number,
         rightElements: Types.node,
         leftElements: Types.node,
@@ -44,11 +44,11 @@ class Button extends React.Component {
         disabled: false,
     };
 
-    render() {
-        const element = 'button';
+    render(cn) {
 
         let elementProps = {
             name: this.props.name,
+            type: this.props.type,
             tabIndex: this.props.tabIndex,
             disabled: this.props.disabled,
             className: this.props.className,
@@ -66,24 +66,29 @@ class Button extends React.Component {
 
         let elementContent = [
             this.props.leftElements &&
-            <span key='left-addons'>
-                    {this.props.leftElements}
-                </span>,
-            this.props.icon &&
-            <span key='icon' className={styles.icon}>
-                    {this.props.icon}
-                </span>,
+            <span key={'leftElement'}>
+                {this.props.leftElements}
+            </span>,
             (this.props.children || this.props.text) &&
-            <span key='text' className={styles.text}>
-                    {this.props.children || this.props.text}
-                </span>,
+            <span key={'text'} className={cn('text')}>
+                {this.props.children || this.props.text}
+            </span>,
             this.props.rightElements &&
-            <span key='right-addons'>
-                    {this.props.rightElements}
-                </span>
+            <span key={'rightElement'}>
+                {this.props.rightElements}
+            </span>
         ];
 
-        return React.createElement(element, elementProps, elementContent);
+        return (
+            <button
+                {...elementProps}
+                className={cn({
+                    size: this.props.size,
+                    disabled: this.props.disabled,
+                })}>
+                {elementContent}
+            </button>
+        );
     }
 
     handleClick = (e) => {

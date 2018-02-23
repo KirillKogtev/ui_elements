@@ -1,3 +1,26 @@
-.test {
-    color: aqua;
+.button {
+    cursor: pointer;
+    outline: 0;
+    user-select: none;
+    white-space: nowrap;
+    border-radius: 5px;
+    padding: 10px 20px;
+
+    border: 1px solid #075ea5;
+}
+
+.button:focus {
+    background: #075ea5;
+}
+
+.button-large {
+    font-size: 28px;
+}
+
+.button-default {
+    font-size: 26px;
+}
+
+.button-small {
+    font-size: 18px;
 }

@@ -1,19 +1,35 @@
+const paths = require('./paths');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
+const includePath = path.resolve(__dirname, '..');
+
 module.exports = {
+    // plugins: ["transform-decorators-legacy"],
     module: {
         rules: [
             {
+                test: /\.(js|jsx)$/,
+                include: paths.appSrc,
+                loader: require.resolve('babel-loader'),
+                options: {
+                    plugins: ['transform-decorators-legacy', 'transform-export-extensions'],
+                    cacheDirectory: true
+                },
+            },
+            {
                 test: /\.css$/,
+                include: includePath,
                 use: [
                     {
-                        loader: 'style-loader'
+                        loader: 'style-loader',
                     },
                     {
                         loader: 'css-loader',
                         options: {
-                            modules: true
-                        }
-                    }
-                ]
+                            sourceMap: true,
+                        },
+                    },
+                ],
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,
