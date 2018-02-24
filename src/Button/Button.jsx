@@ -2,7 +2,6 @@ import React from 'react';
 import Types from 'prop-types';
 import keycode from 'keycode';
 import cn from 'cn-decorator';
-import './Button.css';
 
 
 @cn('button')
