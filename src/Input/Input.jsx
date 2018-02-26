@@ -1,6 +1,7 @@
 import React from 'react';
 import Types from 'prop-types';
 import cn from 'cn-decorator';
+import InputMask from 'react-input-mask';
 
 @cn('input')
 class Input extends React.Component {
@@ -74,7 +75,28 @@ class Input extends React.Component {
             onTouchMove: this.handleTouchMove,
         };
 
-        return <div></div>
+        let rightContent =
+            this.props.rightElements
+            && <div key={'rightElement'} className={cn('rightElement')}>{this.props.rightElements}</div>;
+
+        let leftContent = this.props.leftElements
+            && <div key={'leftElement'} className={cn('leftElement')}>{this.props.leftElements}</div>;
+
+        return (
+            <div>
+                {rightContent}
+                <InputMask
+                    {...elementProps}
+                    className={cn({
+                        right: this.props.rightElements,
+                        left: this.props.leftElements,
+                        disabled: this.props.disabled,
+                        error: this.props.error,
+                    })}
+                />
+                {leftContent}
+            </div>
+        );
     }
 
     handleChange = (e) => {
