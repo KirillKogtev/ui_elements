@@ -1,0 +1,5 @@
+.button_theme_dark_theme.button_disabled {
+    background: none;
+    border: 2px solid red;
+    color: red;
+}
