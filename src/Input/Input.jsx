@@ -17,12 +17,14 @@ class Input extends React.Component {
         mask: Types.string,
         name: Types.string,
         id: Types.string,
+        width: Types.string,
         theme: Types.oneOf(['light_theme', 'dark_theme']),
         maxLength: Types.number,
         tabIndex: Types.number,
         error: Types.node,
         focused: Types.bool,
-        read: Types.bool,
+        readOnly: Types.bool,
+        autoFocus: Types.bool,
         disabled: Types.bool,
         onChange: Types.func,
         onClick: Types.func,
@@ -35,6 +37,10 @@ class Input extends React.Component {
         onTouchEnd: Types.func,
         onTouchMove: Types.func,
         onTouchCancel: Types.func,
+    };
+
+    static defaultProps = {
+        width: '450px',
     };
 
     state = {
@@ -54,13 +60,16 @@ class Input extends React.Component {
 
         let value = this.props.value === undefined ? this.state.value : this.props.value;
         let elementProps = {
-            placeholder: this.props.placeholder,
             className: this.props.className,
             pattern: this.props.pattern,
             name: this.props.name,
             id: this.props.id,
             maxLength: this.props.maxLength,
             tabIndex: this.props.tabIndex,
+            readOnly: this.props.readOnly,
+            autoFocus: this.props.autoFocus,
+            disabled: this.props.disabled,
+            value,
             ref: this.getElementRefs,
             onChange: this.handleChange,
             onClick: this.handleClick,
@@ -83,18 +92,34 @@ class Input extends React.Component {
             && <div key={'leftElement'} className={cn('leftElement')}>{this.props.leftElements}</div>;
 
         return (
-            <div>
-                {rightContent}
-                <InputMask
-                    {...elementProps}
-                    className={cn({
-                        right: this.props.rightElements,
-                        left: this.props.leftElements,
-                        disabled: this.props.disabled,
-                        error: this.props.error,
+            <div
+                className={cn()}
+            >
+                <div
+                    className={cn('input_block')}
+                >
+                    {rightContent}
+                    <InputMask
+                        {...elementProps}
+                        className={cn('input_element', {
+                            right: this.props.rightElements,
+                            left: this.props.leftElements,
+                            disabled: this.props.disabled,
+                            error: this.props.error,
+                            focused: this.state.focused,
+                            readonly: this.props.readOnly ? true : false,
+                        })}
+                        style={{width: this.props.width}}
+                    />
+                    {leftContent}
+                </div>
+                <label
+                    className={cn('label',{
+                        active: Boolean((this.state.focused || value)),
                     })}
-                />
-                {leftContent}
+                >
+                    {this.props.placeholder}
+                </label>
             </div>
         );
     }
@@ -107,6 +132,11 @@ class Input extends React.Component {
 
     handleClick = (e) => {
 
+        if (this.props.read) {
+            e.preventDefault();
+            return;
+        }
+
         if (this.props.onClick) {
             this.props.onClick(event);
         }
@@ -114,7 +144,17 @@ class Input extends React.Component {
     };
 
     handleFocus = (e) => {
+
+        if (this.props.read) {
+            e.preventDefault();
+            return;
+        }
+
         this.setState({focused: true});
+
+        let val = e.target.value;
+        e.target.value = '';
+        e.target.value = val;
 
         if (this.props.onFocus) {
             this.props.onFocus(event);
@@ -157,6 +197,11 @@ class Input extends React.Component {
 
     handleTouchStart = (e) => {
 
+        if (this.props.read) {
+            e.preventDefault();
+            return;
+        }
+
         if (this.props.onTouchStart) {
             this.props.onTouchStart(event);
         }
@@ -189,7 +234,7 @@ class Input extends React.Component {
 
     changeValue(value) {
         if (this.props.value === undefined) {
-            this.setState({ value });
+            this.setState({value});
         }
 
         if (this.props.onChange) {

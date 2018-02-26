@@ -1,27 +1,25 @@
 import React from 'react';
 import Input from '../Input';
+import ThemeProvider from '../ThemeProvider';
 
 export default (
-    <div>
+    <ThemeProvider theme={'light_theme'}>
         <div>
-            Обычное состояние: <br/>
-            <Input />
+            <div>
+                <Input placeholder={'Обычное состояние'}/>
+            </div>
+            <div>
+                <Input autoFocus defaultValue={'Фокус'}/>
+            </div>
+            <div>
+                <Input placeholder={'Введите что-нибудь'} defaultValue={'Заполненное поле'}/>
+            </div>
+            <div>
+                <Input defaultValue={'Только просмотр'} readOnly/>
+            </div>
+            <div>
+                <Input placeholder={'Не активное'} disabled={true}/>
+            </div>
         </div>
-        <div>
-            Фоус: <br/>
-            <Input />
-        </div>
-        <div>
-            Заполненное поле: <br/>
-            <Input />
-        </div>
-        <div>
-            Только просмотр<br/>
-            <Input />
-        </div>
-        <div>
-            Не активное: <br/>
-            <Input />
-        </div>
-    </div>
+    </ThemeProvider>
 )
