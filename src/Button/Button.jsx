@@ -46,6 +46,12 @@ class Button extends React.Component {
         disabled: false,
     };
 
+    element = {};
+
+    getElementRefs = (node) => {
+        this.element = node;
+    };
+
     render(cn) {
 
         let elementProps = {
@@ -55,6 +61,7 @@ class Button extends React.Component {
             disabled: this.props.disabled,
             className: this.props.className,
             id: this.props.id,
+            ref: this.getElementRefs,
             onClick: this.handleClick,
             onFocus: this.handleFocus,
             onBlur: this.handleBlur,
@@ -173,6 +180,10 @@ class Button extends React.Component {
             this.props.onKeyUp(e);
         }
     };
+
+    focus() {
+        this.control.focus();
+    }
 
     blur = () => {
         if (document.activeElement) {
