@@ -23,7 +23,7 @@ class Datepicker extends React.Component {
     render() {
 
         let InputCusom = (
-            <Input mask={'99.99.9999'}/>
+            <Input mask={'99.99.9999'} width={'225px'}/>
         );
 
         return <div>
