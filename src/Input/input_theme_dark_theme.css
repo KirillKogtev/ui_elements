@@ -1,0 +1,28 @@
+.input_theme_dark_theme .input__input_element {
+    background: #fff;
+    color: #333;
+    border: 1px #fff solid;
+}
+
+.input_theme_dark_theme .input__input_element_focused {
+    border: 1px #00BDF2 solid;
+}
+
+.input_theme_dark_theme .input__input_element_readonly {
+    background: none;
+    border: 1px #999 solid;
+    color: #999;
+}
+
+.input_theme_dark_theme .input__label {
+    color:#999;
+}
+
+.input_theme_dark_theme .input__label_active {
+    color:#fff;
+}
+
+.input_theme_dark_theme .input__input_element_disabled {
+    background: #fff;
+    color: #999;
+}

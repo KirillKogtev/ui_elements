@@ -1,8 +1,11 @@
-.input_theme_light_theme .input__input_element_focused {
-    border: 1px #005AA1 solid;
-}
 .input_theme_light_theme .input__input_element {
     background: #eee;
+    color: #333;
+    border: 1px #eee solid;
+}
+
+.input_theme_light_theme .input__input_element_focused {
+    border: 1px #005AA1 solid;
 }
 
 .input_theme_light_theme .input__input_element_readonly {
