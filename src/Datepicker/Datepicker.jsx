@@ -15,6 +15,8 @@ class Datepicker extends React.Component {
         placeholder: Types.string,
         width: Types.string,
         disabled: Types.bool,
+        theme: Types.oneOf(['light_theme', 'dark_theme']),
+        defaultValue: Types.node,
     };
 
     static defaultProps = {
@@ -24,9 +26,17 @@ class Datepicker extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            startDate: moment()
-        };
+
+        if (props.defaultValue) {
+            this.state = {
+                startDate: moment(props.defaultValue)
+            };
+        } else {
+            this.state = {
+                startDate: moment()
+            };
+        }
+
         this.handleChange = this.handleChange.bind(this);
     }
 
