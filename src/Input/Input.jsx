@@ -70,6 +70,7 @@ class Input extends React.Component {
             autoFocus: this.props.autoFocus,
             disabled: this.props.disabled,
             type: this.props.type,
+            mask: this.props.mask,
             value,
             ref: this.getElementRefs,
             onChange: this.handleChange,
@@ -95,6 +96,7 @@ class Input extends React.Component {
         return (
             <div
                 className={cn()}
+                style={{width: this.props.width}}
             >
                 <div
                     className={cn('input_block')}
@@ -110,7 +112,6 @@ class Input extends React.Component {
                             focused: this.state.focused,
                             readonly: this.props.readOnly ? true : false,
                         })}
-                        style={{width: this.props.width}}
                     />
                     {leftContent}
                 </div>
@@ -126,9 +127,9 @@ class Input extends React.Component {
     }
 
     handleChange = (e) => {
-        let value = e.target.value;
+        // let value = e.target.value;
 
-        this.changeValue(value);
+        this.changeValue(e);
     };
 
     handleClick = (e) => {

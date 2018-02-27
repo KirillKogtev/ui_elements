@@ -1,8 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import Button from './Button';
+import Input from './Input';
+import ThemeProvider from './ThemeProvider';
+import Datepicker from './Datepicker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+export {Button, Input, ThemeProvider, Datepicker};

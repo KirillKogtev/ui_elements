@@ -1,7 +1,6 @@
 import React from 'react';
 import {action} from '@storybook/addon-actions';
-import Button from '../Button';
-import ThemeProvider from '../ThemeProvider';
+import {Button, ThemeProvider} from '../index';
 
 export default (
     <ThemeProvider theme={'dark_theme'}>
