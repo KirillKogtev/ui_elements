@@ -3,6 +3,7 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import Input from '../Input';
 import 'moment/src/locale/ru';
+import calndar from '../Images/Calendar.svg'
 
 class Datepicker extends React.Component {
 
@@ -22,8 +23,16 @@ class Datepicker extends React.Component {
 
     render() {
 
+        let imgCalendar = (
+            <img src={calndar}/>
+        )
+
         let InputCusom = (
-            <Input mask={'99.99.9999'} width={'225px'}/>
+            <Input
+                mask={'99.99.9999'}
+                width={'253px'}
+                rightElements={imgCalendar}
+            />
         );
 
         return <div>
