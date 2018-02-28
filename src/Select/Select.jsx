@@ -2,6 +2,8 @@ import React from 'react';
 import cn from 'cn-decorator';
 import Types from 'prop-types';
 
+import SelectJW from 'react-select';
+
 
 @cn('select')
 class Select extends React.Component {
@@ -21,19 +23,42 @@ class Select extends React.Component {
         onBlur: Types.func,
         onClick: Types.func,
         onKeyDown: Types.func,
+        onTouchStart: Types.func,
+        onTouchEnd: Types.func,
+        onTouchMove: Types.func,
         onTouchCancel: Types.func,
     };
 
     static defaultProps = {
         options: [],
+
     };
 
-    static = {
+    state = {
         opened: this.props.opened,
+        selectedOption: '',
+    };
+
+    handleChange = (selectedOption) => {
+        this.setState({ selectedOption });
     };
 
     render(cn) {
-        return <div></div>
+
+        const { selectedOption } = this.state;
+        const value = selectedOption && selectedOption.value;
+
+        return (<div>
+            <SelectJW
+                name="form-field-name"
+                value={value}
+                onChange={this.handleChange}
+                options={[
+                    { value: 'one', label: 'One' },
+                    { value: 'two', label: 'Two' },
+                ]}
+            />
+        </div>)
     }
 }
 

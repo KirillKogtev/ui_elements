@@ -64,7 +64,8 @@
     "prop-types": "^15.6.0",
     "react-css-modules": "^4.7.1",
     "react-datepicker": "^1.2.1",
-    "react-input-mask": "^1.2.2"
+    "react-input-mask": "^1.2.2",
+    "react-select": "^1.2.1"
   },
   "jest": {
     "collectCoverageFrom": [
