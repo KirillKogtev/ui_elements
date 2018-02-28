@@ -42,19 +42,18 @@ class Checkbox extends React.Component {
         };
 
         return (
-            <div>
-                <input
-                    type="checkbox"
-                    className={cn()}
-                    {...elementProps}
-                />
+            <div className={cn()}>
+                <label className={cn('input_element')}>
+                    <input className={cn('checkbox_element')} type="checkbox" name="checkbox" />
+                        <i className={cn('i_element')}></i>
+                </label>
             </div>
         )
     }
 
     handleFocus = (e) => {
 
-        if(this.props.onFocus) {
+        if (this.props.onFocus) {
             this.props.onFocus(e);
         }
 
@@ -62,7 +61,7 @@ class Checkbox extends React.Component {
 
     handleBlur = (e) => {
 
-        if(this.props.onBlur) {
+        if (this.props.onBlur) {
             this.props.onBlur(e);
         }
 
@@ -70,7 +69,7 @@ class Checkbox extends React.Component {
 
     handleChange = (e) => {
 
-        if(this.props.onChange) {
+        if (this.props.onChange) {
             this.props.onChange(e);
         }
 
@@ -78,7 +77,7 @@ class Checkbox extends React.Component {
 
     handleMouseLeave = (e) => {
 
-        if(this.props.onMouseLeave) {
+        if (this.props.onMouseLeave) {
             this.props.onMouseLeave(e);
         }
 
@@ -86,7 +85,7 @@ class Checkbox extends React.Component {
 
     handleMouseEnter = (e) => {
 
-        if(this.props.onMouseEnter) {
+        if (this.props.onMouseEnter) {
             this.props.onMouseEnter(e);
         }
 
@@ -94,7 +93,7 @@ class Checkbox extends React.Component {
 
     handleClick = (e) => {
 
-        if(this.props.onClick) {
+        if (this.props.onClick) {
             this.props.onClick(e);
         }
 

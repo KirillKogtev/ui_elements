@@ -2,7 +2,7 @@ import React from 'react';
 import {ThemeProvider, Checkbox} from "../index";
 
 export default (
-    <ThemeProvider>
+    <ThemeProvider theme={'light_theme'}>
         <div>
             <div>
                 <Checkbox/>
