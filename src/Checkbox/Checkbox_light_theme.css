@@ -1,0 +1,18 @@
+.checkbox__checkbox_element + .checkbox__i_element:after,
+.checkbox__checkbox_element:checked + .checkbox__i_element {
+    border-color: #005AA1 !important;
+    color: #333 !important;
+}
+
+.checkbox__i_element {
+    border-color: #005AA1;
+    background: #fff;
+}
+
+.checkbox__checkbox_element:checked + .checkbox__i_element {
+    background: #005aA1;
+}
+
+.checkbox__checkbox_element + .checkbox__i_element:after {
+    color: #fff;
+}
