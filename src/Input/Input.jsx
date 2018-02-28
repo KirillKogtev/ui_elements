@@ -140,7 +140,7 @@ class Input extends React.Component {
         }
 
         if (this.props.onClick) {
-            this.props.onClick(event);
+            this.props.onClick(e);
         }
 
     };
@@ -159,7 +159,7 @@ class Input extends React.Component {
         e.target.value = val;
 
         if (this.props.onFocus) {
-            this.props.onFocus(event);
+            this.props.onFocus(e);
         }
 
     };
@@ -168,7 +168,7 @@ class Input extends React.Component {
         this.setState({focused: false});
 
         if (this.props.onBlur) {
-            this.props.onBlur(event);
+            this.props.onBlur(e);
         }
 
     };
@@ -176,7 +176,7 @@ class Input extends React.Component {
     handleKeyDown = (e) => {
 
         if (this.props.onKeyDown) {
-            this.props.onKeyDown(event);
+            this.props.onKeyDown(e);
         }
 
     };
@@ -184,7 +184,7 @@ class Input extends React.Component {
     handleKeyUp = (e) => {
 
         if (this.props.onKeyUp) {
-            this.props.onKeyUp(event);
+            this.props.onKeyUp(e);
         }
 
     };
@@ -192,7 +192,7 @@ class Input extends React.Component {
     handlePaste = (e) => {
 
         if (this.props.onPaste) {
-            this.props.onPaste(event);
+            this.props.onPaste(e);
         }
 
     };
@@ -205,7 +205,7 @@ class Input extends React.Component {
         }
 
         if (this.props.onTouchStart) {
-            this.props.onTouchStart(event);
+            this.props.onTouchStart(e);
         }
 
     };
@@ -213,7 +213,7 @@ class Input extends React.Component {
     handleTouchEnd = (e) => {
 
         if (this.props.onTouchEnd) {
-            this.props.onTouchEnd(event);
+            this.props.onTouchEnd(e);
         }
 
     };
@@ -221,7 +221,7 @@ class Input extends React.Component {
     handleTouchMove = (e) => {
 
         if (this.props.onTouchMove) {
-            this.props.onTouchMove(event);
+            this.props.onTouchMove(e);
         }
 
     };
@@ -229,7 +229,7 @@ class Input extends React.Component {
     handleTouchCancel = (e) => {
 
         if (this.props.onTouchCancel) {
-            this.props.onTouchCancel(event);
+            this.props.onTouchCancel(e);
         }
 
     };

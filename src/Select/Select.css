@@ -143,6 +143,7 @@
     height: 34px;
     padding-left: 15px;
     padding-right: 15px;
+    padding-top: 7px;
     vertical-align: middle;
 }
 .Select-input > input {
@@ -403,4 +404,24 @@
     to {
         -webkit-transform: rotate(1turn);
     }
+}
+
+.select {
+    position: relative;
+}
+
+.select__label {
+    font-size: 16px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 15px;
+    top: 15px;
+    transition: 0.2s ease all;
+}
+
+.select__label_active {
+    top: -25px;
+    font-size: 12px;
+    left: 0;
 }
