@@ -6,7 +6,7 @@ export default (
         <div>
             <Switch/>
             <Switch/>
-            <Switch/>
+            <Switch icon/>
         </div>
     </ThemeProvider>
 )

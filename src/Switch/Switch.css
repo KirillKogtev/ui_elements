@@ -61,3 +61,19 @@
     border-radius: 4px;
     transition: right 1s;
 }
+
+.switch__i_element.switch__i_element_icon {
+    content: url("../Images/Checkbox.svg");
+    display: block;
+    position: absolute;
+    right: 2px;
+    left: initial;
+    top: 2px;
+    width: 24px;
+    height: 24px;
+    transition: right 1s;
+}
+
+.switch__i_element_check.switch__i_element_icon {
+
+}

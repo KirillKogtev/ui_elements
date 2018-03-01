@@ -72,6 +72,7 @@ class Switch extends React.Component {
                                 hover: this.state.hovered,
                                 check: this.state.checked,
                                 disabled: this.props.disabled,
+                                icon: this.props.icon,
                             }
                         )}
                     ></i>
