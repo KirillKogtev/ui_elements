@@ -1,18 +1,31 @@
-.checkbox__checkbox_element + .checkbox__i_element:after,
-.checkbox__checkbox_element:checked + .checkbox__i_element {
-    border-color: #005AA1 !important;
-    color: #333 !important;
-}
-
 .checkbox__i_element {
     border-color: #005AA1;
     background: #fff;
 }
 
-.checkbox__checkbox_element:checked + .checkbox__i_element {
+.checkbox__i_element_check {
     background: #005aA1;
 }
 
 .checkbox__checkbox_element + .checkbox__i_element:after {
     color: #fff;
+}
+
+.checkbox__i_element_hover,
+.checkbox__input_element_hover {
+    border-color: #00bdf2 !important;
+    color: #00bdf2 !important;
+}
+
+.checkbox__input_element_hover .checkbox__i_element_check {
+    background: #00bdf2;
+}
+
+.checkbox__input_element_hover .checkbox__i_element_check + .checkbox__i_element {
+    background: #00bdf2;
+    border-color: #00bdf2;
+}
+
+.checkbox__input_element {
+    color: #005aA1;
 }

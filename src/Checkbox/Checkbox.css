@@ -5,7 +5,8 @@
 
 .checkbox__input_element {
     position: relative;
-    padding-left: 25px;
+    padding-left: 30px;
+    padding-top: 3px;
     cursor: pointer;
 }
 
@@ -38,12 +39,16 @@
     -webkit-transition: opacity .1s;
 }
 
-.checkbox__checkbox_element:checked + .checkbox__i_element:after {
+.checkbox__i_element_check:after {
     opacity: 1;
+    position: absolute;
+    transition: opacity .1s;
+    -webkit-transition: opacity .1s;
 }
 
 .checkbox__i_element:after {
-    content: 'Г';
+    content: url('../Images/Checkbox.svg');
+    display: block;
     left: 2px;
     width: 15px;
     height: 15px;
