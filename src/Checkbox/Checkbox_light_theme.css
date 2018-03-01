@@ -1,53 +1,62 @@
-.checkbox__i_element {
-    border-color: #005AA1;
-    background: #fff;
+.switch__i_element {
+    border-color: #999;
+    background: #999;
 }
 
-.checkbox__i_element_check {
+.switch__i_element_check {
     background: #005aA1;
+    border-color: #005AA1;
 }
 
-.checkbox__checkbox_element + .checkbox__i_element:after {
+.checkbox__checkbox_element + .switch__i_element:after {
     color: #fff;
 }
 
-.checkbox__i_element_hover,
-.checkbox__input_element_hover {
+.switch__i_element_hover,
+.switch__input_element_hover {
     border-color: #00bdf2 !important;
     color: #00bdf2 !important;
 }
 
-.checkbox__input_element_hover .checkbox__i_element_check {
+.switch__input_element_hover .switch__i_element_check {
     background: #00bdf2;
 }
 
-.checkbox__input_element_hover .checkbox__i_element_check + .checkbox__i_element {
+.switch__input_element_hover .switch__i_element_check + .switch__i_element {
     background: #00bdf2;
     border-color: #00bdf2;
 }
 
-.checkbox__input_element {
+.switch__input_element {
     color: #005aA1;
 }
 
-.checkbox__input_element_disabled {
+.switch__input_element_disabled {
     color: #999;
 }
 
-.checkbox__i_element_disabled {
+.switch__i_element_disabled {
     border-color: #999;
     background: #fff;
 }
 
-.checkbox__i_element_error {
+.switch__i_element_error {
     border-color: #b60000;
     background: #fff;
 }
 
-.checkbox__i_element_check.checkbox__i_element_error {
+.switch__i_element_check.switch__i_element_error {
     background: #b60000;
 }
 
-.checkbox__input_element_error {
+.switch__input_element_error {
     color: #b60000;
+}
+
+.switch__i_element:after {
+    background: #fff;
+}
+
+.switch__i_element_check:after {
+    background: #fff;
 }

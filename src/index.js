@@ -4,5 +4,6 @@ import ThemeProvider from './ThemeProvider';
 import Datepicker from './Datepicker';
 import Select from './Select';
 import Checkbox from './Checkbox';
+import Switch from './Switch';
 
-export {Button, Input, ThemeProvider, Datepicker, Select, Checkbox};
+export {Button, Input, ThemeProvider, Datepicker, Select, Checkbox, Switch};

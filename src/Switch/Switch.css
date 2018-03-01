@@ -1,0 +1,63 @@
+.switch {
+    margin: 5px 0;
+    height: 30px;
+}
+
+.switch__checkbox_element {
+    position: absolute;
+    left: -9999px;
+}
+
+.switch__input_element {
+    position: relative;
+    padding-left: 30px;
+    padding-top: 3px;
+    cursor: pointer;
+}
+
+.switch__checkbox_element {
+    position: absolute;
+    left: -9999px;
+}
+
+.switch__i_element {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 58px;
+    height: 28px;
+    outline: 0;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.switch__i_element {
+    transition: background .3s;
+    border-radius: 6px;
+}
+
+.switch__i_element:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    transition: left, right 1s;
+}
+
+.switch__i_element_check:after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 2px;
+    left: initial;
+    top: 2px;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    transition: right 1s;
+}
