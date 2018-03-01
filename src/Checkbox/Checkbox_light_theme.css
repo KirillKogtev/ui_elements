@@ -29,3 +29,25 @@
 .checkbox__input_element {
     color: #005aA1;
 }
+
+.checkbox__input_element_disabled {
+    color: #999;
+}
+
+.checkbox__i_element_disabled {
+    border-color: #999;
+    background: #fff;
+}
+
+.checkbox__i_element_error {
+    border-color: #b60000;
+    background: #fff;
+}
+
+.checkbox__i_element_check.checkbox__i_element_error {
+    background: #b60000;
+}
+
+.checkbox__input_element_error {
+    color: #b60000;
+}

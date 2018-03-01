@@ -8,11 +8,13 @@ class Checkbox extends React.Component {
 
     static propTypes = {
         className: Types.string,
+        label: Types.node,
         name: Types.string,
         id: Types.string,
         theme: Types.oneOf(['light_theme', 'dark_theme']),
         checked: Types.bool,
         disabled: Types.bool,
+        error: Types.bool,
         onFocus: Types.func,
         onBlur: Types.func,
         onClick: Types.func,
@@ -21,17 +23,20 @@ class Checkbox extends React.Component {
         onMouseLeave: Types.func,
     };
 
+    static defaultProps = {
+        label: 'checkbox',
+    };
+
     state = {
         checked: this.props.checked || false,
         hovered: false,
         focused: false,
+        error: this.props.error || false,
     };
 
     render(cn) {
 
         let elementProps = {
-            // className: this.props.className,
-            name: this.props.name,
             id: this.props.name,
             disabled: this.props.disabled,
             onFocus: this.handleFocus,
@@ -49,23 +54,30 @@ class Checkbox extends React.Component {
                         'input_element', {
                             hover: this.state.hovered,
                             check: this.state.checked,
+                            disabled: this.props.disabled,
+                            error: this.props.error,
                         }
                     )}
                     {...elementProps}
                 >
                     <input
                         className={cn('checkbox_element')}
-                        type="checkbox" name="checkbox"
+                        type="checkbox"
+                        disabled={this.props.disabled}
+                        name={this.props.name}
+                        defaultChecked={this.state.checked}
                     />
-                        <i
-                            className={cn(
-                                'i_element', {
-                                    hover: this.state.hovered,
-                                    check: this.state.checked,
-                                }
-                            )}
-                        ></i>
-                    132312
+                    <i
+                        className={cn(
+                            'i_element', {
+                                hover: this.state.hovered,
+                                check: this.state.checked,
+                                disabled: this.props.disabled,
+                                error: this.props.error,
+                            }
+                        )}
+                    ></i>
+                    {this.props.label}
                 </label>
             </div>
         )
@@ -94,16 +106,11 @@ class Checkbox extends React.Component {
     handleChange = (e) => {
 
         if (!this.props.disabled) {
-            let nextCheckedValue = !(
-                this.props.checked !== undefined
-                    ? this.props.checked
-                    : this.state.checked
-            );
 
-            this.setState({ checked: nextCheckedValue });
+            this.setState({ checked: !this.state.checked });
 
             if (this.props.onChange) {
-                this.props.onChange(nextCheckedValue, this.props.value);
+                this.props.onChange(this.state.checked, this.props.value);
             }
         }
 

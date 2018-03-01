@@ -1,3 +1,7 @@
+.checkbox {
+    margin: 5px 0;
+}
+
 .checkbox__checkbox_element {
     position: absolute;
     left: -9999px;

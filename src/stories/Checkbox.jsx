@@ -5,16 +5,16 @@ export default (
     <ThemeProvider theme={'light_theme'}>
         <div>
             <div>
-                <Checkbox/>
-                Выбранный пункт
+                <Checkbox label={'Выбранный пункт'} checked/>
             </div>
             <div>
-                <Checkbox/>
-                Обычное состояние
+                <Checkbox label={'Обычное состояние'}/>
             </div>
             <div>
-                <Checkbox/>
-                Неактивный
+                <Checkbox disabled label={'Неактивный'}/>
+            </div>
+            <div>
+                <Checkbox error label={'Ошибка'}/>
             </div>
         </div>
     </ThemeProvider>
