@@ -62,6 +62,7 @@
     "cn-decorator": "^2.1.0",
     "moment": "^2.20.1",
     "prop-types": "^15.6.0",
+    "react-addons-create-fragment": "^15.6.2",
     "react-css-modules": "^4.7.1",
     "react-datepicker": "^1.2.1",
     "react-input-mask": "^1.2.2",

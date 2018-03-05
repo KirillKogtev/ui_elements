@@ -1,12 +1,12 @@
 import React from 'react';
-import {ThemeProvider, Switch} from "../index";
+import {ThemeProvider, Radio, RadioGroup} from '../index';
 
 export default (
     <ThemeProvider theme={'light_theme'}>
         <div>
-            <Switch/>
-            <Switch checked/>
-            <Switch icon/>
+            <RadioGroup>
+                <Radio/>
+            </RadioGroup>
         </div>
     </ThemeProvider>
 )

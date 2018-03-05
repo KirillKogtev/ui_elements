@@ -7,6 +7,7 @@ import Datepicker from "./Datepicker";
 import Select from './Select';
 import Checkbox from './Checkbox';
 import Switch from "./Switch";
+import Radio from './Radio';
 
 storiesOf('Components', module)
     .add('Buttons', () => Buttons)
@@ -14,4 +15,5 @@ storiesOf('Components', module)
     .add('Datepicker', () => Datepicker)
     .add('Select', () => Select)
     .add('Checkbox', () => Checkbox)
-    .add('Switch', () => Switch);
+    .add('Switch', () => Switch)
+    .add('Radio', () => Radio);
