@@ -1,0 +1,50 @@
+.progress_bar {
+    display: flex;
+    position: relative;
+}
+
+.progress_bar__optional {
+    flex: 1 1 0;
+}
+
+.progress_bar__optional_start, .progress_bar__optional_end {
+    flex: .5 1 0;
+}
+
+.progress_bar {
+    font-size: 16px;
+    padding-bottom: 25px;
+}
+
+.progress_bar__optional:before {
+    content: '';
+    display: block;
+    background: #005AA1;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -8px;
+}
+
+.progress_bar__optional:after {
+    content: '';
+    height: 3px;
+    width: 100%;
+    background: #005AA1;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+}
+
+.progress_bar__optional_start:after {
+    content: '';
+    height: 3px;
+    width: 100%;
+    background: #005AA1;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+}

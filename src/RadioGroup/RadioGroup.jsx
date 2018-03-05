@@ -29,14 +29,16 @@ class RadioGroup extends React.Component {
             children = this.props.children.length ? this.props.children : [this.props.children];
         }
 
+        console.log(props.name)
+
         if(children) {
             React.Children.forEach(children, (radio, index) => {
                 radioButtons[`radio_${index}`] = React.cloneElement(radio, {
+                    name: props.name,
                     checked: radio.props.checked !== undefined
                         ? radio.props.checked : (value === radio.props.value),
                     onChange: radio.props.onChange !== undefined
                         ? radio.props.onChange : this.handleRadioChange,
-                    ...props
                 })
             });
         }

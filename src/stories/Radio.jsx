@@ -5,7 +5,9 @@ export default (
     <ThemeProvider theme={'light_theme'}>
         <div>
             <RadioGroup>
-                <Radio/>
+                <Radio value={'1'} label={'первый'}/>
+                <Radio value={'2'} label={'второй'}/>
+                <Radio value={'3'} label={'третий'}/>
             </RadioGroup>
         </div>
     </ThemeProvider>

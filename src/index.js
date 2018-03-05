@@ -6,6 +6,7 @@ import Select from './Select';
 import Checkbox from './Checkbox';
 import Switch from './Switch';
 import Radio from './Radio';
-import RadioGroup from './RadioGroup'
+import RadioGroup from './RadioGroup';
+import ProgressBar from './ProgressBar';
 
-export {Button, Input, ThemeProvider, Datepicker, Select, Checkbox, Switch, Radio, RadioGroup};
+export {Button, Input, ThemeProvider, Datepicker, Select, Checkbox, Switch, Radio, RadioGroup, ProgressBar};

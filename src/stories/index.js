@@ -8,6 +8,7 @@ import Select from './Select';
 import Checkbox from './Checkbox';
 import Switch from "./Switch";
 import Radio from './Radio';
+import ProgressBar from './ProgressBar';
 
 storiesOf('Components', module)
     .add('Buttons', () => Buttons)
@@ -16,4 +17,5 @@ storiesOf('Components', module)
     .add('Select', () => Select)
     .add('Checkbox', () => Checkbox)
     .add('Switch', () => Switch)
-    .add('Radio', () => Radio);
+    .add('Radio', () => Radio)
+    .add('ProgressBar', () => ProgressBar);

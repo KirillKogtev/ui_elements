@@ -1,0 +1,16 @@
+.progress_bar__optional_circle {
+    background: #999999;
+}
+
+.progress_bar__optional_text {
+    color: #999999;
+}
+
+.progress_bar__optional_circle_active {
+    background: #fff;
+    border-color: #005AA1;
+}
+
+.progress_bar__optional_text_active {
+    color: #005AA1;
+}

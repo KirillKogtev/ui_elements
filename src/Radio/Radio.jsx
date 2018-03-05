@@ -24,12 +24,13 @@ class Radio extends React.Component {
     state = {
         hovered: false,
         checked: false,
+        selectedOption: '',
     };
 
     render(cn) {
 
         let elementProps = {
-            id: this.props.name,
+            id: this.props.id,
             disabled: this.props.disabled,
             onFocus: this.handleFocus,
             onBlur: this.handleBlur,
@@ -45,7 +46,7 @@ class Radio extends React.Component {
                     className={cn(
                         'input_element', {
                             hover: this.state.hovered,
-                            check: this.state.checked,
+                            check: this.state.selectedOption === this.props.value,
                             disabled: this.props.disabled,
                             error: this.props.error,
                         }
@@ -54,16 +55,16 @@ class Radio extends React.Component {
                 >
                     <input
                         className={cn('radio_element')}
-                        type="checkbox"
+                        type="radio"
                         disabled={this.props.disabled}
-                        name={this.props.name}
-                        defaultChecked={this.state.checked}
+                        value={this.props.value}
+
                     />
                     <i
                         className={cn(
                             'i_element', {
                                 hover: this.state.hovered,
-                                check: this.state.checked,
+                                check: this.state.selectedOption === this.props.value,
                                 disabled: this.props.disabled,
                                 error: this.props.error,
                             }
@@ -83,21 +84,19 @@ class Radio extends React.Component {
 
         if (!this.props.disabled) {
 
-            this.setState({ checked: e.target.checked});
+            this.setState({selectedOption: e.target.value});
+
+            console.log(e.target.value);
 
             if (this.props.onChange) {
-                this.props.onChange(this.props.value, e.target.checked);
+                this.props.onChange(e.target.value);
             }
         }
     };
 
     handleFocus = (e) => {
         if (!this.props.disabled) {
-            this.setState({ focused: true });
-        }
-
-        if (this.props.type !== 'button') {
-            event.target.value = this.props.value;
+            this.setState({focused: true});
         }
 
         if (this.props.onFocus) {
@@ -107,11 +106,7 @@ class Radio extends React.Component {
 
     handleBlur = (e) => {
         if (!this.props.disabled) {
-            this.setState({ focused: false });
-        }
-
-        if (this.props.type !== 'button') {
-            event.target.value = this.props.value;
+            this.setState({focused: false});
         }
 
         if (this.props.onBlur) {
@@ -120,7 +115,7 @@ class Radio extends React.Component {
     };
 
     handleMouseEnter = (e) => {
-        this.setState({ hovered: true });
+        this.setState({hovered: true});
 
         if (this.props.onMouseEnter) {
             this.props.onMouseEnter(e);
@@ -128,7 +123,7 @@ class Radio extends React.Component {
     };
 
     handleMouseLeave = (e) => {
-        this.setState({ hovered: false });
+        this.setState({hovered: false});
 
         if (this.props.onMouseLeave) {
             this.props.onMouseLeave(e);
