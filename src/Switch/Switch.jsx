@@ -10,6 +10,7 @@ class Switch extends React.Component {
         label: Types.node,
         name: Types.string,
         id: Types.string,
+        tabIndex: Types.number,
         theme: Types.oneOf(['light_theme', 'dark_theme']),
         icon: Types.bool,
         checked: Types.bool,

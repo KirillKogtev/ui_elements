@@ -12,6 +12,7 @@ class Checkbox extends React.Component {
         name: Types.string,
         id: Types.string,
         theme: Types.oneOf(['light_theme', 'dark_theme']),
+        tabIndex: Types.number,
         checked: Types.bool,
         disabled: Types.bool,
         error: Types.bool,

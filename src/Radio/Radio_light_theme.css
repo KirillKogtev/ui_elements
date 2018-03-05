@@ -1,0 +1,53 @@
+.radio__i_element {
+    border-color: #005AA1;
+    background: #fff;
+}
+
+.radio__checkbox_element + .radio__i_element:after {
+    color: #fff;
+}
+
+.radio__i_element:after {
+    background: #005AA1;
+}
+
+.radio__input_element_hover .radio__i_element:after {
+    background: #00bdf2;
+}
+
+.radio__i_element_hover,
+.radio__input_element_hover {
+    border-color: #00bdf2 !important;
+    color: #00bdf2 !important;
+}
+
+.radio__input_element_hover .radio__i_element_check + .radio__i_element {
+    background: #00bdf2;
+    border-color: #00bdf2;
+}
+
+.radio__input_element {
+    color: #005aA1;
+}
+
+.radio__input_element_disabled {
+    color: #999;
+}
+
+.radio__i_element_disabled {
+    border-color: #999;
+    background: #fff;
+}
+
+.radio__i_element_error {
+    border-color: #b60000;
+    background: #fff;
+}
+
+.radio__i_element_check.radio__i_element_error {
+    background: #b60000;
+}
+
+.radio__input_element_error {
+    color: #b60000;
+}
