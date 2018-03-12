@@ -1,0 +1,7 @@
+.breadcrumbs__item {
+    color: #056dae;
+}
+
+.breadcrumbs__item:not(:last-child):after, .breadcrumbs__item_end {
+    color: #666666;
+}

@@ -127,9 +127,9 @@ class Input extends React.Component {
     }
 
     handleChange = (e) => {
-        // let value = e.target.value;
+        let value = e.target.value;
 
-        this.changeValue(e);
+        this.changeValue(value);
     };
 
     handleClick = (e) => {

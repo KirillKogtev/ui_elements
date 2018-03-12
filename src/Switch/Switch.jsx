@@ -12,6 +12,8 @@ class Switch extends React.Component {
         id: Types.string,
         tabIndex: Types.number,
         theme: Types.oneOf(['light_theme', 'dark_theme']),
+        leftElement: Types.node,
+        rightElement: Types.node,
         icon: Types.bool,
         checked: Types.bool,
         disabled: Types.bool,
@@ -50,6 +52,7 @@ class Switch extends React.Component {
 
         return (
             <div className={cn()}>
+                {this.props.leftElement}
                 <label
                     className={cn(
                         'input_element', {
@@ -79,6 +82,7 @@ class Switch extends React.Component {
                     ></i>
                     {this.props.label}
                 </label>
+                {this.props.rightElement}
             </div>
         );
     }
@@ -107,7 +111,7 @@ class Switch extends React.Component {
 
         if (!this.props.disabled) {
 
-            this.setState({ checked: !this.state.checked });
+            this.setState({checked: !this.state.checked});
 
             if (this.props.onChange) {
                 this.props.onChange(this.state.checked, this.props.value);

@@ -39,6 +39,10 @@
     background: #fff;
 }
 
+.checkbox__input_element_check {
+    color: #333;
+}
+
 .checkbox__i_element_error {
     border-color: #b60000;
     background: #fff;

@@ -1,6 +1,7 @@
 .switch {
     margin: 5px 0;
     height: 30px;
+    display: flex;
 }
 
 .switch__checkbox_element {

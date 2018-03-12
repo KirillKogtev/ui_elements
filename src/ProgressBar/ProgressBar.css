@@ -1,6 +1,10 @@
 .progress_bar {
     display: flex;
     position: relative;
+    width: 100%;
+    font-size: 16px;
+    padding-bottom: 55px;
+    padding-top: 30px;
 }
 
 .progress_bar:after {
@@ -10,7 +14,7 @@
     width: calc(100% - 10px);
     background: #999;
     position: absolute;
-    bottom: 1px;
+    bottom: 31px;
 }
 
 .progress_bar__optional {
@@ -21,11 +25,6 @@
 
 .progress_bar__optional_start, .progress_bar__optional_end {
     flex: .5 1 0;
-}
-
-.progress_bar {
-    font-size: 16px;
-    padding-bottom: 25px;
 }
 
 .progress_bar__optional_end {
@@ -46,7 +45,7 @@
     z-index: 88;
 }
 
-.progress_bar__left_progress, .progress_bar__left_progress_start {
+.progress_bar__left_progress, .progress_bar__left_progress_end {
     height: 3px;
     background: #002d72;
     display: block;
@@ -54,6 +53,10 @@
     bottom: -24px;
     left: 0;
     z-index: 88;
+}
+
+.progress_bar__left_progress_end {
+    right: 10px;
 }
 
 .progress_bar__left_progress {
