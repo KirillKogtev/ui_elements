@@ -3,7 +3,7 @@ import Types from 'prop-types';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import Input from '../Input';
-import 'moment/src/locale/ru';
+// import 'moment/src/locale/ru';
 import calndar from '../Images/Calendar.svg'
 
 class Datepicker extends React.Component {
@@ -20,31 +20,23 @@ class Datepicker extends React.Component {
     };
 
     static defaultProps = {
-        width: '363px',
+        width: '100%',
         disabled: false,
+    };
+
+    state = {
+        startDate: this.props.defaultValue ? moment(this.props.defaultValue) : moment(),
     };
 
     constructor(props) {
         super(props);
-
-        if (props.defaultValue) {
-            this.state = {
-                startDate: moment(props.defaultValue)
-            };
-        } else {
-            this.state = {
-                startDate: moment()
-            };
-        }
-
-        this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(date) {
+    handleChange = (date) => {
         this.setState({
-            startDate: date
+            startDate: date,
         });
-    }
+    };
 
     render() {
 
@@ -80,6 +72,7 @@ class Datepicker extends React.Component {
                 onSelect={this.handleChange}
                 customInput={InputCusom}
                 locale="ru"
+                style={{width: this.props.width}}
             />
         </div>
     }

@@ -9,6 +9,7 @@ class RadioGroup extends React.Component {
 
     static propTypes = {
         name: Types.string,
+        className: Types.string,
         id: Types.string,
         value: Types.node,
         onChange: Types.func,
@@ -21,7 +22,6 @@ class RadioGroup extends React.Component {
     render(cn) {
 
         let radioButtons = {};
-        let props = { name };
         let children = null;
         let value = this.state.value;
 
@@ -29,12 +29,10 @@ class RadioGroup extends React.Component {
             children = this.props.children.length ? this.props.children : [this.props.children];
         }
 
-        console.log(props.name)
-
         if(children) {
             React.Children.forEach(children, (radio, index) => {
                 radioButtons[`radio_${index}`] = React.cloneElement(radio, {
-                    name: props.name,
+                    name: this.props.name,
                     checked: radio.props.checked !== undefined
                         ? radio.props.checked : (value === radio.props.value),
                     onChange: radio.props.onChange !== undefined
@@ -44,7 +42,7 @@ class RadioGroup extends React.Component {
         }
 
         return (
-            <div>
+            <div className={this.props.className}>
                 {createFragment(radioButtons)}
             </div>
         )

@@ -31,7 +31,7 @@ class Select extends React.Component {
 
     static defaultProps = {
         options: [],
-        width: '450px',
+        width: '100%',
     };
 
     state = {

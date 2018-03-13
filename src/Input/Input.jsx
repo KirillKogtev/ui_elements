@@ -40,7 +40,7 @@ class Input extends React.Component {
     };
 
     static defaultProps = {
-        width: '450px',
+        width: '100%',
     };
 
     state = {
@@ -127,7 +127,7 @@ class Input extends React.Component {
     }
 
     handleChange = (e) => {
-        let value = e.target.value;
+        let value = e.target.value ? e.target.value : e;
 
         this.changeValue(value);
     };
