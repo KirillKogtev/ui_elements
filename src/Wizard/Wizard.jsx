@@ -6,6 +6,7 @@ class Wizard extends React.Component {
 
     static propTypes = {
         children: Types.oneOfType([Types.arrayOf(Types.node), Types.node]),
+        onChange: Types.func,
     };
 
     constructor(props) {
@@ -18,6 +19,10 @@ class Wizard extends React.Component {
 
     handlerNext = () => {
         this.setState({currentStep: this.state.currentStep + 1});
+
+        if(this.props.onChange) {
+            this.props.onChange(this.state.currentStep + 1);
+        }
     };
 
     handlerBack = () => {
@@ -25,6 +30,10 @@ class Wizard extends React.Component {
             return;
         }
         this.setState({currentStep: this.state.currentStep - 1});
+
+        if(this.props.onChange) {
+            this.props.onChange(this.state.currentStep - 1);
+        }
     };
 
     render() {
