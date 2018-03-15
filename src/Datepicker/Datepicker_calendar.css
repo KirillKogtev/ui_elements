@@ -65,10 +65,17 @@
 
 .react-datepicker-popper {
   z-index: 1;
-  top: 30px!important;
+  /*top: 30px!important;*/
   left: 5px;
 }
 
+.react-datepicker-popper[data-placement='bottom-start']{
+  transform: translate3d(0px, 80px, 0px)!important;
+}
+
+.react-datepicker-popper[data-placement='top-start']{
+  transform: translate3d(0px, -237px, 0px)!important;
+}
 
 .react-datepicker-popper[data-placement^="right"] .react-datepicker__triangle {
   left: auto;

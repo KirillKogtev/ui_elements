@@ -17,9 +17,6 @@ class ProgressBar extends React.Component {
 
     renderProgress = (index, length, cn) => {
 
-        console.log('index'+index);
-        console.log('length'+length);
-
         return (
             [(index !== 0 && index !== length - 1 && index < this.props.position - 1) &&
                 <div key={'standart'} className={cn('progress')}>

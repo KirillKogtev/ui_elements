@@ -3,9 +3,12 @@ import Types from 'prop-types';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import Input from '../Input';
-// import 'moment/src/locale/ru';
-import calndar from '../Images/Calendar.svg'
+import 'moment/locale/ru';
+import calndar from '../Images/Calendar.svg';
+import cn from 'cn-decorator';
 
+
+@cn('datepicker')
 class Datepicker extends React.Component {
 
     static propTypes = {
@@ -24,12 +27,12 @@ class Datepicker extends React.Component {
         disabled: false,
     };
 
-    state = {
-        startDate: this.props.defaultValue ? moment(this.props.defaultValue) : moment(),
-    };
-
     constructor(props) {
         super(props);
+
+        this.state = {
+            startDate: this.props.defaultValue ? moment(this.props.defaultValue) : moment(),
+        };
     }
 
     handleChange = (date) => {
@@ -38,7 +41,7 @@ class Datepicker extends React.Component {
         });
     };
 
-    render() {
+    render(cn) {
 
         let inputProps = {
             width: this.props.width,
@@ -60,12 +63,13 @@ class Datepicker extends React.Component {
             <Input
                 {...inputProps}
                 mask={'99.99.9999'}
+                isDatepicker={true}
                 width={this.props.width}
                 rightElements={imgCalendar}
             />
         );
 
-        return <div>
+        return <div className={cn()}>
             <DatePicker
                 {...elementProps}
                 selected={this.state.startDate}

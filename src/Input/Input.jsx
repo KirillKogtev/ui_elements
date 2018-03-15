@@ -14,6 +14,7 @@ class Input extends React.Component {
         leftElements: Types.node,
         className: Types.string,
         mask: Types.string,
+        pattern: Types.node,
         name: Types.string,
         id: Types.string,
         width: Types.string,
@@ -22,6 +23,7 @@ class Input extends React.Component {
         maxLength: Types.number,
         tabIndex: Types.number,
         error: Types.node,
+        isDatepicker: Types.bool,
         focused: Types.bool,
         readOnly: Types.bool,
         autoFocus: Types.bool,
@@ -41,6 +43,7 @@ class Input extends React.Component {
 
     static defaultProps = {
         width: '100%',
+        isDatepicker: false,
     };
 
     state = {
@@ -127,7 +130,16 @@ class Input extends React.Component {
     }
 
     handleChange = (e) => {
-        let value = e.target.value ? e.target.value : e;
+
+        if (this.props.pattern) {
+            e.target.value = e.target.value.replace(this.props.pattern, '');
+        }
+
+        let value = e.target.value;
+
+        if (this.props.isDatepicker) {
+            value = e;
+        }
 
         this.changeValue(value);
     };

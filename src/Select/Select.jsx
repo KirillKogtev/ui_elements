@@ -13,6 +13,7 @@ class Select extends React.Component {
         id: Types.string,
         name: Types.string,
         placeholder: Types.string,
+        defaultValue: Types.string,
         width: Types.string,
         disabled: Types.bool,
         opened: Types.bool,
@@ -34,9 +35,25 @@ class Select extends React.Component {
         width: '100%',
     };
 
-    state = {
-        opened: this.props.opened,
-        selectedOption: '',
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            opened: this.props.opened,
+            selectedOption: this.getDefaultLabel(),
+        }
+    }
+
+    getDefaultLabel = () => {
+        if (!this.props.defaultValue) {
+            return '';
+        }
+
+        if (!this.props.options) {
+            return '';
+        }
+
+        return this.props.options.find(item => item.value === this.props.defaultValue)
     };
 
     render(cn) {
