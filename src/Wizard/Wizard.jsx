@@ -13,7 +13,7 @@ class Wizard extends React.Component {
         super(props);
 
         this.state = {
-            currentStep: 4,
+            currentStep: 1,
         }
     }
 
