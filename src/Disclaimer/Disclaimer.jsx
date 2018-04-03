@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'cn-decorator';
 import Types from 'prop-types';
-import { Scrollbars } from 'react-custom-scrollbars';
+import {Scrollbars} from 'react-custom-scrollbars';
 
 @cn('disclaimer')
 class Disclaimer extends React.Component {
@@ -16,11 +16,13 @@ class Disclaimer extends React.Component {
 
     render(cn) {
         return (
-            <Scrollbars style={{height:this.props.height}} className={cn()}>
-                <div className={cn('text_block')}>
-                    {this.props.children || this.props.text}
-                </div>
-            </Scrollbars>
+            <div className={cn()}>
+                <Scrollbars style={{height: this.props.height}} className={cn('scrollbars')}>
+                    <div className={cn('text_block')}>
+                        {this.props.children || this.props.text}
+                    </div>
+                </Scrollbars>
+            </div>
         );
     }
 }

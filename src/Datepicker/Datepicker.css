@@ -1,3 +1,7 @@
 .datepicker {
     position: relative;
 }
+
+.datepicker__img {
+    cursor: pointer;
+}

@@ -53,9 +53,10 @@
 .checkbox__i_element:after {
     content: url('../Images/Checkbox.svg');
     display: block;
-    left: 2px;
-    width: 15px;
-    height: 15px;
+    left: 3px;
+    width: 13px;
+    height: 14px;
     font: 400 16px/19px FontAwesome;
     text-align: center;
+    top: -2px;
 }

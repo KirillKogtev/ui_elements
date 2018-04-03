@@ -3,7 +3,7 @@ import Types from 'prop-types';
 import cn from 'cn-decorator';
 import InputMask from 'react-input-mask';
 
-@cn('input')
+@cn('email_autocomplite')
 class Input extends React.Component {
 
     static propTypes = {
@@ -14,17 +14,15 @@ class Input extends React.Component {
         rightElements: Types.node,
         leftElements: Types.node,
         className: Types.string,
-        mask: Types.string,
         name: Types.string,
         id: Types.string,
         width: Types.string,
         theme: Types.oneOf(['light_theme', 'dark_theme']),
-        type: Types.oneOf(['email', 'number', 'text', 'tel', 'search', 'url', 'password']),
+        domains: Types.array,
         maxLength: Types.number,
         tabIndex: Types.number,
         pattern: Types.object,
         error: Types.bool,
-        isDatepicker: Types.bool,
         focused: Types.bool,
         readOnly: Types.bool,
         autoFocus: Types.bool,
@@ -45,6 +43,8 @@ class Input extends React.Component {
     static defaultProps = {
         width: '100%',
         isDatepicker: false,
+        domains: ['gmail.com', 'mail.ru', 'yandex.ru', 'ya.ru', 'rambler.ru', 'list.ru', 'bk.ru'
+            , 'inbox.ru', 'yahoo.ru', 'hotmail.ru', 'vk.com', 'nm.ru'],
     };
 
     constructor(props) {
@@ -54,6 +54,8 @@ class Input extends React.Component {
             focused: this.props.focused || false,
             disabled: false,
             value: this.props.defaultValue || '',
+            domains: this.props.domains,
+            suggestion: '',
         };
 
         this.value = '';
@@ -65,7 +67,7 @@ class Input extends React.Component {
         this.element = node;
     };
 
-    componentDidMount(){
+    componentDidMount() {
         if (this.props.focused) {
             this.element.focus();
         }
@@ -85,10 +87,8 @@ class Input extends React.Component {
             readOnly: this.props.readOnly,
             autoFocus: this.props.autoFocus,
             disabled: this.props.disabled,
-            type: this.props.type,
-            mask: this.props.mask,
             value,
-            inputRef: this.getElementRefs,
+            ref: this.getElementRefs,
             onChange: this.handleChange,
             onClick: this.handleClick,
             onFocus: this.handleFocus,
@@ -118,7 +118,7 @@ class Input extends React.Component {
                     className={cn('input_block')}
                 >
                     {rightContent}
-                    <InputMask
+                    <input
                         {...elementProps}
                         className={cn('input_element', {
                             right: this.props.rightElements,
@@ -206,6 +206,25 @@ class Input extends React.Component {
 
     handleKeyUp = (e) => {
 
+        let protectedKeyCodes = [9, 17, 18, 35, 36, 37, 38, 39, 40, 45];
+        if (protectedKeyCodes.indexOf(e.keyCode) >= 0) {
+            return;
+        }
+
+        if (e.keyCode === 8) {
+            this.setState({
+                value: e.target.value.replace(this.state.suggestion, '')
+            });
+        } else {
+            if (typeof this.state.suggestion === 'undefined' || this.state.suggestion.length < 1) {
+                return false;
+            } else {
+                let startPos = this.state.value.indexOf(this.state.suggestion);
+                let endPos = startPos + this.state.suggestion.length;
+                this.element.setSelectionRange(startPos, endPos);
+            }
+        }
+
         if (this.props.onKeyUp) {
             this.props.onKeyUp(e);
         }
@@ -258,22 +277,73 @@ class Input extends React.Component {
     };
 
     changeValue(e) {
-
         if (this.props.pattern) {
             e.target.value = e.target.value.replace(this.props.pattern, '');
         }
 
         let value = e.target.value;
 
-        if (this.props.isDatepicker) {
-            value = e;
+        let suggest = this.suggest(value);
+
+        if (!(typeof suggest === 'undefined' || suggest.length < 1)) {
+            value += suggest;
         }
 
-        if (this.props.value === undefined) {
-            this.setState({value});
-        }
+        this.setState({
+            value,
+            suggestion: suggest
+        });
 
         return value;
+    }
+
+    suggest(string) {
+        if (!Array.prototype.indexOf) {
+            this.doIndexOf();
+        }
+
+        let str_arr = string.split('@');
+        if (str_arr.length > 1) {
+            string = str_arr.pop();
+        } else {
+            return;
+        }
+
+        let match = this.state.domains.filter((domain) => {
+            return 0 === domain.indexOf(string);
+        }).shift() || '';
+
+        return match.replace(string, '');
+    }
+
+    doIndexOf() {
+        Array.prototype.indexOf = function (searchElement, fromIndex) {
+            if (this === undefined || this === null) {
+                throw new TypeError('"this" is null or not defined');
+            }
+
+            var length = this.length >>> 0; // Hack to convert object.length to a UInt32
+            fromIndex = +fromIndex || 0;
+
+            if (Math.abs(fromIndex) === Infinity) {
+                fromIndex = 0;
+            }
+
+            if (fromIndex < 0) {
+                fromIndex += length;
+                if (fromIndex < 0) {
+                    fromIndex = 0;
+                }
+            }
+
+            for (; fromIndex < length; fromIndex++) {
+                if (this[fromIndex] === searchElement) {
+                    return fromIndex;
+                }
+            }
+
+            return -1;
+        }
     }
 }
 

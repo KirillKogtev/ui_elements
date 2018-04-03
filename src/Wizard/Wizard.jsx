@@ -17,11 +17,19 @@ class Wizard extends React.Component {
         }
     }
 
-    handlerNext = () => {
-        this.setState({currentStep: this.state.currentStep + 1});
+    handlerNext = (step = -1) => {
+        if(step !== -1) {
+            this.setState({currentStep: step});
+            this.setChange(step);
+        } else {
+            this.setState({currentStep: this.state.currentStep + 1});
+            this.setChange(this.state.currentStep + 1);
+        }
+    };
 
+    setChange = (val) => {
         if(this.props.onChange) {
-            this.props.onChange(this.state.currentStep + 1);
+            this.props.onChange(val);
         }
     };
 

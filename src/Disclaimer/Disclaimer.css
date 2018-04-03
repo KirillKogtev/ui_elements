@@ -1,7 +1,26 @@
 .disclaimer {
     margin: 30px 0;
+    padding: 20px;
 }
 
 .disclaimer__text_block {
-    padding: 20px;
+    padding: 0 40px 0 0;
+}
+
+@media (max-width: 768px) {
+    .disclaimer {
+        padding: 10px;
+    }
+    .disclaimer__text_block {
+        padding: 0 30px 0 0;
+    }
+}
+
+@media (max-width: 420px) {
+    .disclaimer {
+        padding: 5px;
+    }
+    .disclaimer__text_block {
+        padding: 0 10px 0 0;
+    }
 }

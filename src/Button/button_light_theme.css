@@ -1,9 +1,9 @@
-.button_theme_light_theme {
-
+.button_theme_light_theme.button_type_default {
+    border: 1px solid #075ea5;
 }
 
 .button_theme_light_theme.button_disabled {
     background: none;
-    border: 2px solid #515151;
-    color: #515151;
+    border: 1px solid #999;
+    color: #999;
 }

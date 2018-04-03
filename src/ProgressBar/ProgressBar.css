@@ -15,6 +15,7 @@
     background: #999;
     position: absolute;
     bottom: 31px;
+    left: 0;
 }
 
 .progress_bar__optional {
@@ -28,11 +29,11 @@
 }
 
 .progress_bar__optional_end {
-    text-align: end;
+    text-align: right;
 }
 
 .progress_bar__optional_start {
-    text-align: start;
+    text-align: left;
 }
 
 .progress_bar__right_progress, .progress_bar__right_progress_start {

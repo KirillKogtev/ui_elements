@@ -1,0 +1,27 @@
+.email_autocomplite_theme_light_theme .email_autocomplite__input_element {
+    background: #eee;
+    color: #333;
+    border: 1px #eee solid;
+}
+
+.email_autocomplite_theme_light_theme .email_autocomplite__input_element_focused {
+    border: 1px #005AA1 solid;
+}
+
+.email_autocomplite_theme_light_theme .email_autocomplite__input_element_readonly {
+    background: #fff;
+    border: 1px #666666 solid;
+}
+
+.email_autocomplite_theme_light_theme .email_autocomplite__label {
+    color:#666;
+}
+
+.email_autocomplite_theme_light_theme .email_autocomplite__label_active {
+    color:#333;
+}
+
+.email_autocomplite_theme_light_theme .email_autocomplite__input_element_disabled {
+    background: #f4f5f5;
+    color: #999;
+}
